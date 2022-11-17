@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import Form from "./Form";
 import Header from "./Header";
 import ToDoList from "./ToDoList";
@@ -28,11 +29,13 @@ const App=() => {
     const [search, setSearch]=useState(true)
    
     return (
+        <BrowserRouter>
         <div>
         <div className="ui container">
             <div className="row">
                 <div className="todolist">
             <Header />
+            <br />
             <Form 
                 list={list}
                 setList={setList}
@@ -53,7 +56,7 @@ const App=() => {
         </div>
         </div>
     </div>
-        
+    </BrowserRouter>
     )
 }
 export default App

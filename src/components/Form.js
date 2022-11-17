@@ -16,6 +16,8 @@ const Form=({list, setList, text, setText,id, hidden, search, setSearch}) => {
         <div className="field">
             {hidden && (
                 <input autoFocus
+                    autoComplete="off"
+                    id="search"
                     className="form-control add-todo"
                     type="text"
                     placeholder="Add New"
