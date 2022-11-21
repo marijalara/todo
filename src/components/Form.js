@@ -1,5 +1,5 @@
 import React from "react";
-const Form=({list, setList, text, setText,id, hidden, search, setSearch}) => {
+const Form=({list, setList, text, setText,id, hidden, count, setCount}) => {
    
     const handleChange=(e) => {
         setText(e.target.value)
@@ -11,8 +11,13 @@ const Form=({list, setList, text, setText,id, hidden, search, setSearch}) => {
         setList(newList)
         setText('')
     }
+    
+    const Counter=() => {
+        setCount(count + 1)
+    }
+   
     return(
-        <form onSubmit={handleSubmit} className="ui form">
+        <form onSubmit={handleSubmit} onSubmitCapture={Counter} className="ui form">
         <div className="field">
             {hidden && (
                 <input autoFocus

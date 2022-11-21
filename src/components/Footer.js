@@ -5,10 +5,12 @@ import { HashLink as Link } from "react-router-hash-link";
 
 
 
-const Footer=({hidden, setHidden, setSearch}) => {
+const Footer=({hidden, setHidden, setSearch, count, setShow, isActive, setIsActive}) => {
     const handleClick=() => {
         setSearch()
     }
+    
+    
     
     return(
         <footer className="clearfix">
@@ -18,18 +20,18 @@ const Footer=({hidden, setHidden, setSearch}) => {
             </div>
             <div title="Search" onClick={handleClick} className="button search">
                 <Link to="#search" >
-                <FaSistrix className="search" aria-placeholder="Search"/>
+                <FaSistrix className="search" />
                 </Link>
             </div>
             </div>
-            <div className="pull-left" >3 items left</div>
+            <div className="pull-left">{count} items left</div>
             <div className="pull-right">
                 <ul className="filters list-unstyled clearfix">
                     <li>
-                        <a className="selected">All</a>
+                        <a onClick={() => setShow()}className="selected">All</a>
                     </li>
                     <li>
-                        <a className="selected">Active</a>
+                        <a onClick={() => setIsActive(!isActive)} className={`selected ${isActive ? 'active' : ''}`}>Active</a>
                     </li>
                     <li>
                         <a className="selected">Completed</a>
