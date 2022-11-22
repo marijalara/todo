@@ -9,11 +9,11 @@ const ToDoList=({list, isChecked, setIsChecked}) => {
                     <label>
                         <input 
                             type="checkbox" 
-                            checked={isChecked} 
+                            defaultChecked={isChecked}
                             value={item} 
                             onChange={() => setIsChecked(!isChecked)}
                         />
-                        {item.text}
+                        <span className="completed" style={{textDecoration: isChecked ? 'line-through' : 'none'}}>{item.text}</span>
                     </label>
                 </div>
             </li>
