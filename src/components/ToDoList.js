@@ -1,25 +1,33 @@
 import React from "react";
-const ToDoList=({list, isChecked, setIsChecked}) => {
+const ToDoList=({list, setIsChecked}) => {
+    const handleChange=(completed, index) => {
+        let tmp=list[index]
+        tmp.completed=!completed
+        let listClone=[...list]
+        listClone[index]=tmp
+        setIsChecked([...listClone])
+    }
     
     return (
         <ul className="ui list" >
-        {list.map((item, index)=> (
-            <li className="item ui-state-default pending" key={index}>
+        {list.map(({text, completed}, i) => (
+            <li className="item ui-state-default pending" key={i}>
                 <div className="checkbox">
-                    <label>
+                    <label htmlFor={i}>
                         <input 
-                            type="checkbox" 
-                            defaultChecked={isChecked}
-                            value={item} 
-                            onChange={() => setIsChecked(!isChecked)}
+                            type="checkbox"                    
+                            checked={completed}
+                            value={text.value} 
+                            onChange={() => handleChange(completed,i)}
+                            id={i}
+                            
                         />
-                        <span className="completed" style={{textDecoration: isChecked ? 'line-through' : 'none'}}>{item.text}</span>
+                        <span style={{textDecoration: completed ? "line-through" : ""}} className="completed">{text}</span>
                     </label>
                 </div>
             </li>
         ))}
         </ul>
-    
     )
 }
 export default ToDoList

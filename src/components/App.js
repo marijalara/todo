@@ -5,9 +5,12 @@ import Header from "./Header";
 import ToDoList from "./ToDoList";
 import Footer from "./Footer";
 
+
+
 const App=() => {
+    
     const initialCounterValue=3
-    const initialList=[
+    let initialList=[
         {
             text: 'Learn Javascript',
             id: 1,
@@ -24,14 +27,20 @@ const App=() => {
             completed: false
         }
     ]
+    
     const [list, setList]=useState(initialList)
     const [text, setText]=useState('')
     const [hidden, setHidden]=useState(true)
-    const [search, setSearch]=useState(true)
     const [count, setCount]=useState(initialCounterValue)
-    const [show, setShow]=useState(0)
-    const [isActive, setIsActive]=useState(false)
     const [isChecked, setIsChecked]=useState(false)
+
+
+    const [status, setStatus]=useState('all')
+    const [filtered, setFiltered]=useState([])
+    
+
+   
+     
    
     return (
         <BrowserRouter>
@@ -58,14 +67,12 @@ const App=() => {
             <Footer 
                 hidden={hidden}
                 setHidden={setHidden}
-                search={search}
-                setSearch={setSearch}
                 count={count}
-                show={show}
-                setShow={setShow}
-                isActive={isActive}
-                setIsActive={setIsActive}
-
+                filtered={filtered}
+                setFiltered={setFiltered}
+                list={list}
+                setStatus={setStatus}
+                status={status}
             />
             </div>
         </div>

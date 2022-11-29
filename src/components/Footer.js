@@ -1,15 +1,41 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { FaPlus } from "react-icons/fa";
 import { FaSistrix } from "react-icons/fa"; 
 import { HashLink as Link } from "react-router-hash-link";
+import Search from "./Search";
 
 
 
-const Footer=({hidden, setHidden, setSearch, count, setShow, isActive, setIsActive}) => {
+const Footer=({hidden, setHidden, setSearch, setStatus, status, list, setFiltered, count}) => {
     const handleClick=() => {
         setSearch()
     }
     
+    const statusOnChange=(e) => {
+        setStatus(e.target.value)
+    }
+    
+    const filtersHandler=() => {
+        switch(status) {
+            case "completed": 
+                setFiltered(list.filter(text =>text.completed===true))
+                break
+            case "active":
+                setFiltered(list.filter(text =>text.completed===false))
+                break
+            default:
+                setFiltered(list)
+                break
+        }
+    }
+   
+    useEffect(() => {
+        filtersHandler()
+    },[list, status])
+
+    const filterOnClick=() => {
+        filtersHandler()
+    }
     
     
     return(
@@ -19,22 +45,24 @@ const Footer=({hidden, setHidden, setSearch, count, setShow, isActive, setIsActi
                 <FaPlus className="add"/>
             </div>
             <div title="Search" onClick={handleClick} className="button search">
-                <Link to="#search" >
-                <FaSistrix className="search" />
+                <Link to="/#search" >
+                <FaSistrix 
+                    className="search" 
+                />
                 </Link>
             </div>
             </div>
             <div className="pull-left">{count} items left</div>
             <div className="pull-right">
-                <ul className="filters list-unstyled clearfix">
-                    <li>
-                        <a onClick={() => setShow()}className="selected">All</a>
+                <ul name="keys" className="filters list-unstyled clearfix">
+                    <li onChange={statusOnChange}>
+                        <div onClick={filterOnClick} key="all" className="selected">All</div>
                     </li>
                     <li>
-                        <a onClick={() => setIsActive(!isActive)} className={`selected ${isActive ? 'active' : ''}`}>Active</a>
+                        <div onClick={filterOnClick} key="active" className="selected">Active</div>
                     </li>
                     <li>
-                        <a className="selected">Completed</a>
+                        <div onClick={filterOnClick} key="completed" className="selected">Completed</div>
                     </li>
                 </ul>
             </div>

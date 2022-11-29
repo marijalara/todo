@@ -1,5 +1,5 @@
 import React from "react";
-const Form=({list, setList, text, setText,id, hidden, count, setCount}) => {
+const Form=({list, setList, text, setText, hidden, count, setCount}) => {
    
     const handleChange=(e) => {
         setText(e.target.value)
@@ -7,7 +7,7 @@ const Form=({list, setList, text, setText,id, hidden, count, setCount}) => {
     const handleSubmit=(e) => {
         e.preventDefault()
         
-        const newList=[...list, {text:text, completed:false, id:id}]
+        const newList=[...list, {text:text, completed:false, id: list.length +1}]
         setList(newList)
         setText('')
     }
@@ -22,7 +22,6 @@ const Form=({list, setList, text, setText,id, hidden, count, setCount}) => {
             {hidden && (
                 <input autoFocus
                     autoComplete="off"
-                    id="search"
                     className="form-control add-todo"
                     type="text"
                     placeholder="Add New"
