@@ -5,8 +5,6 @@ import Header from "./Header";
 import ToDoList from "./ToDoList";
 import Footer from "./Footer";
 
-
-
 const App=() => {
     
     const initialCounterValue=3
@@ -33,15 +31,11 @@ const App=() => {
     const [hidden, setHidden]=useState(true)
     const [count, setCount]=useState(initialCounterValue)
     const [isChecked, setIsChecked]=useState(false)
-
-
-    const [status, setStatus]=useState('all')
+    const [status, setStatus]=useState("all")
     const [filtered, setFiltered]=useState([])
-    
 
-   
-     
-   
+    const [query, setQuery]=useState('')
+    
     return (
         <BrowserRouter>
         <div>
@@ -63,6 +57,8 @@ const App=() => {
                 list={list}
                 isChecked={isChecked}
                 setIsChecked={setIsChecked}
+                query={query}
+                filtered={filtered}
             />
             <Footer 
                 hidden={hidden}
@@ -73,6 +69,8 @@ const App=() => {
                 list={list}
                 setStatus={setStatus}
                 status={status}
+                query={query}
+                setQuery={setQuery}
             />
             </div>
         </div>

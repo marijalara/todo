@@ -1,4 +1,5 @@
 import React from "react";
+
 const Form=({list, setList, text, setText, hidden, count, setCount}) => {
    
     const handleChange=(e) => {
@@ -24,6 +25,7 @@ const Form=({list, setList, text, setText, hidden, count, setCount}) => {
                     autoComplete="off"
                     className="form-control add-todo"
                     type="text"
+                    name="add"
                     placeholder="Add New"
                     onChange={handleChange}
                     value={text}

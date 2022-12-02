@@ -63,6 +63,11 @@ input {
     width: 100%;
     height: 34px;
 }
+.form-control.search {
+    display: none;
+    width: 100%;
+    height: 34px;
+}
 
 
 .ul.list {
@@ -122,7 +127,7 @@ footer {
     border-color: #ddd;
 }
 
-.add {
+.button.add {
     margin-bottom: 5px;
     text-align: center;
     position: relative;
@@ -130,7 +135,7 @@ footer {
     display: inline-block;
     
 }
-.search {
+.button.search {
     margin-bottom: 5px;
     text-align: center;
     position: relative;
@@ -150,24 +155,24 @@ div {
     list-style: none;
 }
 .filters li {
-    display: inline-block;
+    display: flex;
     margin-left: 7px;
     text-align: center;
     padding-bottom: px;
 }
-.filters li div {
+.filters li button {
     position: relative;
     cursor: pointer;
     color: inherit;
-    padding: 1px 6px;
+    padding: 1px px;
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 3px;
 }
-.filters li div.selected, .filters li a:hover {
+.filters li button.selected, .filters li a:hover {
     border-color: rgba(175, 47, 47, 0.1);
 }
-.filters li div.selected {
+.filters li button.selected {
     border-color: rgba(175, 47, 47, 0.2);
     color: #555;
 }

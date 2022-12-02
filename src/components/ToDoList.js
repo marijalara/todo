@@ -1,16 +1,17 @@
 import React from "react";
-const ToDoList=({list, setIsChecked}) => {
-    const handleChange=(completed, index) => {
-        let tmp=list[index]
+const ToDoList=({list, setIsChecked, filtered}) => {
+    const handleChange=(completed, i) => {
+        let tmp=list[i]
         tmp.completed=!completed
         let listClone=[...list]
-        listClone[index]=tmp
+        listClone[i]=tmp
         setIsChecked([...listClone])
+        
     }
     
     return (
         <ul className="ui list" >
-        {list.map(({text, completed}, i) => (
+        {filtered.map(({text, completed}, i) => (
             <li className="item ui-state-default pending" key={i}>
                 <div className="checkbox">
                     <label htmlFor={i}>

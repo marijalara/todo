@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Search=() => {
-    const [search, setSearch]=useState('')
+const Search=({query, setQuery}) => {
 
     const searchHandlerChange=(e) => {
-        setSearch(e.target.value)
+        setQuery(e.target.value)
     }
 
     return(
         <input autoFocus
             autoComplete="off"
-            id="search"
             className="form-control search"
             type="text"
-            value={search}
+            name="search"
+            id="search"
+            defaultValue={query}
             placeholder="Search"
             onChange={() => searchHandlerChange}
         />

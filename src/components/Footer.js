@@ -4,14 +4,12 @@ import { FaSistrix } from "react-icons/fa";
 import { HashLink as Link } from "react-router-hash-link";
 import Search from "./Search";
 
-
-
-const Footer=({hidden, setHidden, setSearch, setStatus, status, list, setFiltered, count}) => {
+const Footer=({hidden, setHidden, query, setQuery, setStatus, status, list, setFiltered, count}) => {
     const handleClick=() => {
-        setSearch()
+        setQuery()
     }
-    
-    const statusOnChange=(e) => {
+   
+    const statusHandler=(e) => {
         setStatus(e.target.value)
     }
     
@@ -32,11 +30,6 @@ const Footer=({hidden, setHidden, setSearch, setStatus, status, list, setFiltere
     useEffect(() => {
         filtersHandler()
     },[list, status])
-
-    const filterOnClick=() => {
-        filtersHandler()
-    }
-    
     
     return(
         <footer className="clearfix">
@@ -46,23 +39,18 @@ const Footer=({hidden, setHidden, setSearch, setStatus, status, list, setFiltere
             </div>
             <div title="Search" onClick={handleClick} className="button search">
                 <Link to="/#search" >
-                <FaSistrix 
-                    className="search" 
-                />
+                <FaSistrix className="search"/>
+                <Search query={query} setQuery={setQuery}/>
                 </Link>
             </div>
             </div>
             <div className="pull-left">{count} items left</div>
             <div className="pull-right">
-                <ul name="keys" className="filters list-unstyled clearfix">
-                    <li onChange={statusOnChange}>
-                        <div onClick={filterOnClick} key="all" className="selected">All</div>
-                    </li>
+                <ul onClick={statusHandler} name="list" className="filters list-unstyled clearfix">
                     <li>
-                        <div onClick={filterOnClick} key="active" className="selected">Active</div>
-                    </li>
-                    <li>
-                        <div onClick={filterOnClick} key="completed" className="selected">Completed</div>
+                        <button  value="all" className="selected">All</button>
+                        <button  value="active" className="selected">Active</button>
+                        <button  value="completed" className="selected">Completed</button>
                     </li>
                 </ul>
             </div>
