@@ -1,22 +1,25 @@
 import React from "react";
 
-const Search=({query, setQuery}) => {
-
-    const searchHandlerChange=(e) => {
-        setQuery(e.target.value)
+const Search=({query, setQuery,forwardedRef,filtered, list, data}) => {
+    
+    const handleChange=() => {
+        setQuery()
     }
-
+    
     return(
-        <input autoFocus
-            autoComplete="off"
-            className="form-control search"
-            type="text"
-            name="search"
-            id="search"
-            defaultValue={query}
-            placeholder="Search"
-            onChange={() => searchHandlerChange}
-        />
+        <div className="ui form">
+            <input 
+                ref={forwardedRef}
+                autoComplete="off"
+                className="form-control search"
+                type="text"
+                name="search"
+                id="search"
+                value={query}
+                placeholder="Search"
+                onChange={handleChange}
+            />
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+
 const ToDoList=({list, setIsChecked, filtered}) => {
     const handleChange=(completed, i) => {
         let tmp=list[i]
@@ -6,9 +7,8 @@ const ToDoList=({list, setIsChecked, filtered}) => {
         let listClone=[...list]
         listClone[i]=tmp
         setIsChecked([...listClone])
-        
     }
-    
+   
     return (
         <ul className="ui list" >
         {filtered.map(({text, completed}, i) => (

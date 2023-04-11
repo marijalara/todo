@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    
 }
 .row {
     margin-right: -15px;
@@ -19,7 +18,6 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
 .header {
     text-align: center;
 }
@@ -64,12 +62,9 @@ input {
     height: 34px;
 }
 .form-control.search {
-    display: none;
     width: 100%;
     height: 34px;
 }
-
-
 .ul.list {
     padding-left: 0;
     list-style: none;
@@ -94,7 +89,7 @@ ul {
 }
 li {
     display: list-item;
-    text-align: left
+    text-align: left;
 }
 footer {
     border-top: 1px solid #ddd;
@@ -121,19 +116,16 @@ footer {
     cursor: pointer;
     transition: 0.3s all;
 }
-
 .buttons .button:hover .buttons.button.selected {
     opacity: 1;
     border-color: #ddd;
 }
-
 .button.add {
     margin-bottom: 5px;
     text-align: center;
     position: relative;
     color: black;
-    display: inline-block;
-    
+    display: inline-block;  
 }
 .button.search {
     margin-bottom: 5px;
@@ -145,7 +137,6 @@ footer {
 div {
     display: block;
 }
-
 .pull-right {
     float: right !important;
 }
@@ -160,7 +151,7 @@ div {
     text-align: center;
     padding-bottom: px;
 }
-.filters li button {
+.filters li a {
     position: relative;
     cursor: pointer;
     color: inherit;
@@ -169,10 +160,10 @@ div {
     border: 1px solid transparent;
     border-radius: 3px;
 }
-.filters li button.selected, .filters li a:hover {
+.filters li a.selected, .filters li a:hover {
     border-color: rgba(175, 47, 47, 0.1);
 }
-.filters li button.selected {
+.filters li a.selected {
     border-color: rgba(175, 47, 47, 0.2);
     color: #555;
 }
@@ -213,4 +204,31 @@ input {
 }
 .btn {
     margin-left: 10px;
+}
+.popup-box {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+.box {
+    position: relative;
+    width: 50%;
+    min-height: 250px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin: 20px auto;
+    padding: 20px;
+    overflow: auto;
+}
+.btn-close {
+    cursor: pointer;
+    border: 1px solid #999;
+    border-radius: 50%;
+    position: fixed;
+    right: calc(25% - 12px);
+    top: 10px;
 }

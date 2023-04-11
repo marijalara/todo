@@ -6,9 +6,9 @@ import ToDoList from "./ToDoList";
 import Footer from "./Footer";
 
 const App=() => {
-    
+
     const initialCounterValue=3
-    let initialList=[
+    let initialDetails=[
         {
             text: 'Learn Javascript',
             id: 1,
@@ -26,15 +26,14 @@ const App=() => {
         }
     ]
     
-    const [list, setList]=useState(initialList)
+    const [list, setList]=useState(initialDetails)
     const [text, setText]=useState('')
     const [hidden, setHidden]=useState(true)
     const [count, setCount]=useState(initialCounterValue)
     const [isChecked, setIsChecked]=useState(false)
     const [status, setStatus]=useState("all")
     const [filtered, setFiltered]=useState([])
-
-    const [query, setQuery]=useState('')
+    const [query, setQuery]=useState([])
     
     return (
         <BrowserRouter>
