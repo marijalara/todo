@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header=() => {
+const Header: React.FC=() => {
     let text='Things to do'
     return(
         <div className="header">
