@@ -3,7 +3,6 @@ import { FaPlus } from "react-icons/fa";
 import { FaSistrix } from "react-icons/fa"; 
 
 const Footer=({hidden, setHidden, setStatus, status, list, setFiltered, count}) => {
-    const [isOpen, setIsOpen]=useState(false)
     const searchInput=useRef(null)
     
     const statusHandler=(e) => {
@@ -42,7 +41,6 @@ const Footer=({hidden, setHidden, setStatus, status, list, setFiltered, count}) 
             </div>
             <div title="Search"  className="button search">
                 <FaSistrix className="search" onClick={handleClickRef}/>
-                
             </div>
             </div>
             <div className="pull-left">{count} items left</div>

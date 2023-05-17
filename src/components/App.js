@@ -33,7 +33,6 @@ const App=() => {
     const [isChecked, setIsChecked]=useState(false)
     const [status, setStatus]=useState("all")
     const [filtered, setFiltered]=useState([])
-    const [query, setQuery]=useState([])
     
     return (
         <BrowserRouter>
@@ -54,22 +53,17 @@ const App=() => {
             />
             <ToDoList 
                 list={list}
-                isChecked={isChecked}
                 setIsChecked={setIsChecked}
-                query={query}
                 filtered={filtered}
             />
             <Footer 
                 hidden={hidden}
                 setHidden={setHidden}
                 count={count}
-                filtered={filtered}
                 setFiltered={setFiltered}
                 list={list}
                 setStatus={setStatus}
                 status={status}
-                query={query}
-                setQuery={setQuery}
             />
             </div>
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
 
 const Form=({list, setList, text, setText, hidden, count, setCount}) => {
-   
     const handleChange=(e) => {
         setText(e.target.value)
     }

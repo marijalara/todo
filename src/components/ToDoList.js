@@ -21,7 +21,6 @@ const ToDoList=({list, setIsChecked, filtered}) => {
                             value={text.value} 
                             onChange={() => handleChange(completed,i)}
                             id={i}
-                            
                         />
                         <span style={{textDecoration: completed ? "line-through" : ""}} className="completed">{text}</span>
                     </label>
